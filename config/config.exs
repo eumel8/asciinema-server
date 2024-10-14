@@ -112,6 +112,14 @@ config :asciinema, Oban,
 config :scrivener_html,
   view_style: :bootstrap_v4
 
+# Avoid
+#
+#   .../latest_remote_poll.txt": read-only file system
+#
+# error with tzdata. Basically tzdata tries to self-update constantly, and it
+# must do this in a writable directory.
+config :tzdata, :data_dir, Path.expand("/tmp/tzdata")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
