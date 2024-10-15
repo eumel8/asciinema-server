@@ -118,7 +118,8 @@ config :scrivener_html,
 #
 # error with tzdata. Basically tzdata tries to self-update constantly, and it
 # must do this in a writable directory.
-config :tzdata, :data_dir, Path.expand("/tmp/tzdata")
+#config :tzdata, :data_dir, Path.expand("/tmp/tzdata")
+config :tzdata, :autoupdate, :disabled
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
